@@ -237,7 +237,11 @@ const TeamMembers = () => {
                       {new Date(user.createdAt).toLocaleDateString()}
                     </TableCell>
                     <TableCell className="text-right">
-                      {user.status === "blocked" ? (
+                      {user.status === "invited" ? (
+                        <span className="text-sm text-gray-500 italic">
+                          Pending acceptance
+                        </span>
+                      ) : user.status === "blocked" ? (
                         <Button
                           variant="ghost"
                           size="sm"

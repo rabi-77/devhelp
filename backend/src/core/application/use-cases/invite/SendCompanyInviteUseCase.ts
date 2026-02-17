@@ -116,6 +116,7 @@ export class SendCompanyInviteUseCase {
     });
 
     try {
+      console.log('invitation mail', req.email, subject, html, 'hey');
       await this.emailService.sendMail({
         to: req.email,
         subject,

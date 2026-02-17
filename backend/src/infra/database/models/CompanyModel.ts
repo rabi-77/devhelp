@@ -87,7 +87,6 @@ const CompanySchema = new Schema<ICompany>(
   },
 );
 
-CompanySchema.index({ email: 1 });
 CompanySchema.index({ status: 1 });
 CompanySchema.index({ subscriptionPlan: 1 });
 

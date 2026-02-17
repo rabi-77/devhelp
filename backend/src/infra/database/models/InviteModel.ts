@@ -45,7 +45,6 @@ const InviteSchema = new Schema<IInvite>(
 InviteSchema.index({ email: 1, companyId: 1 });
 InviteSchema.index({ companyId: 1, status: 1 });
 InviteSchema.index({ expiresAt: 1 });
-InviteSchema.index({ token: 1 });
 
 const InviteModel = model<IInvite>("Invite", InviteSchema);
 

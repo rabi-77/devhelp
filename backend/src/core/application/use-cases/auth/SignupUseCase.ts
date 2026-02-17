@@ -124,7 +124,20 @@ export class SignupUseCase {
       }
 
       if (error.code === 11000) {
-        // Duplicate key error - likely email
+        // Duplicate key error from MongoDB
+        const duplicateField = error.keyPattern;
+
+        if (duplicateField?.email) {
+          // Check if it's from Company or User collection
+          const errorMessage = error.message || '';
+          if (errorMessage.includes('Company')) {
+            throw new EmailAlreadyExistsError("Company email already registered");
+          } else if (errorMessage.includes('User')) {
+            throw new EmailAlreadyExistsError("Admin email already registered");
+          }
+        }
+
+        // Generic fallback
         throw new EmailAlreadyExistsError("Email already registered");
       }
 

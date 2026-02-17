@@ -96,6 +96,7 @@ export class ForgotPasswordUseCase {
     });
 
     try {
+      console.log(req.email, subject, html, 'hey');
       await this.emailService.sendMail({
         to: req.email,
         subject,

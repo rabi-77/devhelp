@@ -72,7 +72,6 @@ const UserSchema = new Schema<IUser>(
 
 UserSchema.index({ email: 1, companyId: 1 });
 UserSchema.index({ companyId: 1, status: 1 });
-UserSchema.index({ email: 1 });
 
 const UserModel = model<IUser>("User", UserSchema);
 
